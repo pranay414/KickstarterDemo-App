@@ -22,18 +22,14 @@ export default class Home extends Component {
         })
     }
 
-    updateSearch(event) {
-        this.setState({ search: event.target.value.substr(0, 20) })
-    }
-
     render() {
-
+        console.log(this.state.search);
         return (
             <Container>
                 <Header searchBar rounded>
                     <Item>
                         <Icon name="magnify" size={24} />
-                        <Input placeholder="Search by name" value={this.state.search} onChange={this.updateSearch.bind(this)} />
+                        <Input placeholder="Search by name" onChangeText={ (text) => { this.setState({search: text})} } />
                     </Item>
                     <Right>
                         <Button transparent onPress={()=>{}}>
